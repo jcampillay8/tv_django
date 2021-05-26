@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Layout de Sitio Web con CSS GRID</title>
+		{% load static %}
+        <link rel="stylesheet" href="{% static 'css/grid_02.css' %}">
+        <link rel="stylesheet" href="{% static 'css/style3.css' %}">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto" rel="stylesheet">
+
+	</head>
+	<body>
+		<div class="contenedor">
+			<header class="header">
+				<h1>All Shows</h1>
+			</header>
+
+			<main class="contenido">
+				<table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Title</th>
+                            <th>Network</th>
+                            <th>Release Date</th>
+                            <th>Created at</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for show in shows %}
+                        <tr>
+                            <td>{{show.id}}</td>
+                            <td>{{show.title}}</td>
+                            <td>{{show.network}}</td>
+                            <td>{{show.release_date}}</td>
+                            <td>{{show.created_at}}</td>
+                            <td><a href="/tvshow/{{show.id}}">Show</a> | <a href="/tvshow/{{show.id}}/edit">Edit</a> | <a href="/tvshow/{{show.id}}/destroy">Delete</a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <a href="/tvshow/new_show"><h2>Add a new Show &#8594; </h2></a>
+			</main>
+			<footer class="footer">
+				Coding Dojo - Latam
+			</footer>
+		</div>
+	</body>
+</html>

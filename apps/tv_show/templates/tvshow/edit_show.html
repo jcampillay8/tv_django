@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Layout de Sitio Web con CSS GRID</title>
+		{% load static %}
+        <link rel="stylesheet" href="{% static 'css/grid_02.css' %}">
+        <link rel="stylesheet" href="{% static 'css/style3.css' %}">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto" rel="stylesheet">
+
+	</head>
+	<body>
+		<div class="contenedor">
+			<header class="header">
+				<a href="/tvshow/tvshow"><h3>Go Back &#8594;</h3></a>
+                <h1>Edit Show {{show.id}}</h1>     
+			</header>
+
+			<main class="contenido">
+				{% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <form name="update_show" action="/tvshow/update" method="post">
+        {% csrf_token %}
+        
+        <div class="row1">
+            <h3>Title</h3>
+            <br>
+            <input class="input" type="text" name="title" value="{{show.title}}">
+            </div>
+                    <h3>Network</h3>
+                    <br>
+                    <input class="input" type="text" name="network" value="{{show.network}}">
+                    <h3>Release Date</h3>
+                    <br>
+                    <input class="input" type="date" name="release_date" value="{{show.release_date}}">
+                    <input class="input" type="hidden" name="id" value="{{show.id}}">
+                    <h3>Description</h3>
+                    <br>
+                    <textarea name="description"></textarea>
+                    <input id="button" type="submit">
+                    <br>
+                    <a href="/tvshow/{{show.id}}"><h3>Go to show &#8594;</h3></a>
+            </form>
+			</main>
+			<footer class="footer">
+				Coding Dojo - Latam
+			</footer>
+		</div>
+	</body>
+</html>

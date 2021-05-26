@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Layout de Sitio Web con CSS GRID</title>
+		{% load static %}
+        <link rel="stylesheet" href="{% static 'css/grid_02.css' %}">
+        <link rel="stylesheet" href="{% static 'css/style3.css' %}">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto" rel="stylesheet">
+
+	</head>
+	<body>
+		<div class="contenedor">
+			<header class="header">
+				<a href="/tvshow/tvshow"><h3>Go Back &#8594;</h3></a>
+                <h1>Add a new Show</h1> 
+			</header>
+			<main class="contenido">
+				{% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                    <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                <form name="new_show" action="/tvshow/create" method="post">
+                    {% csrf_token %}
+                    <h3>Title</h3>
+                    <input class="input" type="text" name="title">
+                    <br><br>
+                    <h3>Network</h3>
+                    <input class="input" type="text" name="network">
+                    <br><br>
+                    <h3>Release Date</h3>
+                    <input class="input" type="date" name="release_date">
+                    <br><br>
+                    <h3>Description</h3>
+                    <textarea name="description" id="" cols="50" rows="10"></textarea>
+                    <br>
+                    <br>
+                    
+                    <button id="button" type="submit" class='btn'>Create</button>
+                </form>   
+			</main>
+			<footer class="footer">
+				Coding Dojo - Latam
+			</footer>
+		</div>
+	</body>
+</html>

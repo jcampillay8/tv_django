@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'apps.login_register',
+    'apps.tv_show',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

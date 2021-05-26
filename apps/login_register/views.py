@@ -56,7 +56,7 @@ def login(request):
             print("User Password Matches")
             request.session["id"]=user.id
             request.session["first_name"]=user.first_name
-            return redirect("/book/book")
+            return redirect("/tvshow/tvshow")
         else:
             print("User Password Match Fails")
             return redirect("/")

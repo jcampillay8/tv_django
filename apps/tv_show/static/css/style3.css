@@ -1,0 +1,48 @@
+table{
+    background-attachment: white;
+    text-align: left;
+    border-collapse: collapse;
+    width:100%;
+}
+
+th, td{
+    border:1px solid black;
+    padding: 20px;
+}
+
+thead{
+    background-color: rgb(24, 97, 40);
+    border: 5px solid #0F362D;
+    color: white;
+}
+
+tr:nth-child(even){
+    background-color: #ddd;
+}
+
+.header h1{
+    text-align: center;
+}
+
+.header a{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.contenido{
+    text-align: center;
+}
+
+input{
+    width: 300px;
+}
+
+.btn{
+    display: inline-block;
+    background:  #045c84;
+    color: #fff;
+    padding: 8px 30px;
+    margin: 30px 0;
+    border-radius: 10px;
+    transition: background 0.5s;
+}
